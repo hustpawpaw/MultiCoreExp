@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
+#include <sys/time.h>
+
+enum TYPE{serial, parallel};
+enum TYPE run_type = serial; 
+
+int n = 0 ;
+int result = 0;
+void praseArgv(int argc, char * argv[])
+{
+	long opt;
+	n = 10;
+	while((opt = getopt(argc, argv, "p:s:")) != -1)
+	{
+		switch (opt)
+		{
+			case 's' : n = atoi(optarg);break;
+			case 'p' : run_type = parallel; 
+					   n = atoi(optarg); 
+					   break;
+			default  : n = 10; break;			
+		}
+	}
+} 
+
+int fib(int n )
+{
+	if (n < 2) return n;
+	else
+	{
+		int x, y;
+
+		x = fib (n - 1);
+		y = fib (n - 2);
+		
+		return (x + y);
+	}
+}
+
+cilk int pfib(int n)
+{
+	if (n < 2) return n ;
+	else
+	{
+		int x, y;
+
+		x = spawn pfib(n - 1);
+		y = spawn pfib(n - 2);
+
+		sync;
+		
+		return (x + y);
+	}
+}
+
+
+cilk int main(int argc , char * argv[])
+{
+	struct timeval start, end;
+	double time_use = 0;
+	praseArgv(argc, argv);
+	gettimeofday(&start, 0);
+	if (run_type == serial)
+	{
+		result = fib(n);
+	}
+	else
+	{	
+		result = spawn pfib(n);
+		sync;
+	}
+	gettimeofday(&end, 0);
+ 	time_use = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
+	if(run_type == serial)
+		printf("mode serial\n");
+	else
+		printf("mode parallel \n");
+	printf("result = %d, timeuse = %lf\n", result, time_use / 1000);
+	return 0;
+}

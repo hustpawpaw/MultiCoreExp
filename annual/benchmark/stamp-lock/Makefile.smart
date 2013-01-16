@@ -1,0 +1,2 @@
+vacation:vacation.cpp
+	gcc vacation.cpp -lstdc++ -lpthread -L/home/dhm/annual/ -ldspthread -D__SMART -o vacation

@@ -1,0 +1,2 @@
+vacation: vacation.cpp
+	gcc vacation.cpp -lpthread -lstdc++ -o vacation 

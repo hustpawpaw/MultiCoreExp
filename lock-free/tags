@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+THREAD_COUNT	lockfreeQueue.cpp	5;"	d	file:
+THREAD_COUNT	spinlockQueue.cpp	6;"	d	file:
+TIME_COUNT	openmpLock.cpp	5;"	d	file:
+TestAtomic	openmpLock.cpp	/^void TestAtomic()$/;"	f
+TestOmpLock	openmpLock.cpp	/^void TestOmpLock()$/;"	f
+f	lockfreeQueue.cpp	/^void *f(void * arg)$/;"	f
+f	spinlockQueue.cpp	/^void *f(void * arg)$/;"	f
+head	lockfreeQueue.cpp	/^node *head;$/;"	v
+head	spinlockQueue.cpp	/^node *head;$/;"	v
+lock	lockfreeQueue.cpp	/^pthread_spinlock_t lock;$/;"	v
+lock	spinlockQueue.cpp	/^pthread_spinlock_t lock;$/;"	v
+main	lockfreeQueue.cpp	/^int main()                    $/;"	f
+main	openmpLock.cpp	/^int main()$/;"	f
+main	spinlockQueue.cpp	/^int main()             $/;"	f
+mutex	lockfreeQueue.cpp	/^pthread_mutex_t mutex;$/;"	v
+mutex	spinlockQueue.cpp	/^pthread_mutex_t mutex;$/;"	v
+next	lockfreeQueue.cpp	/^    struct node_t *next;$/;"	m	struct:node_t	typeref:struct:node_t::node_t	file:
+next	spinlockQueue.cpp	/^	struct node_t *next;$/;"	m	struct:node_t	typeref:struct:node_t::node_t	file:
+node	lockfreeQueue.cpp	/^}node;$/;"	t	typeref:struct:node_t	file:
+node	spinlockQueue.cpp	/^}node;$/;"	t	typeref:struct:node_t	file:
+node_t	lockfreeQueue.cpp	/^typedef struct node_t{$/;"	s	file:
+node_t	spinlockQueue.cpp	/^typedef struct node_t{$/;"	s	file:
+tail	lockfreeQueue.cpp	/^node *tail;$/;"	v
+tail	spinlockQueue.cpp	/^node *tail;$/;"	v
+tid	lockfreeQueue.cpp	/^pthread_t tid[10];$/;"	v
+tid	spinlockQueue.cpp	/^pthread_t tid[10];$/;"	v
+value	lockfreeQueue.cpp	/^    int value;$/;"	m	struct:node_t	file:
+value	spinlockQueue.cpp	/^	int value;$/;"	m	struct:node_t	file:
